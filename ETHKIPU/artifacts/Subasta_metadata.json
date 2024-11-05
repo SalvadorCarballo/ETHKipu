@@ -18,7 +18,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"ETHKIPU/SubastaModulo2.sol": "Donaciones"
+			"ETHKIPU/SubastaModulo2.sol": "Subasta"
 		},
 		"evmVersion": "cancun",
 		"libraries": {},
@@ -33,11 +33,11 @@
 	},
 	"sources": {
 		"ETHKIPU/SubastaModulo2.sol": {
-			"keccak256": "0xc36ed1267da55fa794a6f850963fc82d2216a5e195ce9e8c6176fe9131e392b1",
+			"keccak256": "0x48db0b46c417c6088e8d69b6ff458e83984c7d81af8240956c730994fafd4321",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://398cc40619e0c0f5d3bdf6628726eccaa1164b5366264c4f5d4f6f43b08caca4",
-				"dweb:/ipfs/QmaqrG66fJDLwF1AK3dsEvQANFRgKCAe7YUHgJq4zhigMy"
+				"bzz-raw://346f04c6232f78096cfc370483083e9ccbf0b8e8b63928799721eaea12989966",
+				"dweb:/ipfs/QmVA1MMfdsDkDJo3L4pGZotyP1nR1YaPqqLkHg6dWd8fBL"
 			]
 		}
 	},
