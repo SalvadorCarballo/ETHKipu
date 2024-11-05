@@ -1,0 +1,59 @@
+{
+	"compiler": {
+		"version": "0.8.26+commit.8a97fa7a"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"name": "printCaller",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"ETHKIPU/callee2.sol": "callee"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"ETHKIPU/callee2.sol": {
+			"keccak256": "0x4f8accc511b266189355b101d21223fe919ea56f96c6abad9720be10cc3d8662",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://6d13aa29c49cd670e5c8b1796d0a0f0ea6e12e0ca450fcbefd90bb5385db734d",
+				"dweb:/ipfs/QmfENGPfhvzvPizxqNcXoKWQG97ouPgw28s9PcWM4TQMPS"
+			]
+		}
+	},
+	"version": 1
+}

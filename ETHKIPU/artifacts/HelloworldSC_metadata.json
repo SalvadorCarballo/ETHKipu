@@ -1,0 +1,92 @@
+{
+	"compiler": {
+		"version": "0.8.25+commit.b61c2a91"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "_nombre",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "_mensaje",
+						"type": "string"
+					}
+				],
+				"name": "escribirVisitaSC",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "verUltimaVisitaSC",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					},
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					},
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"ETHKIPU/HelloworldSC.sol": "HelloworldSC"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"ETHKIPU/HelloworldSC.sol": {
+			"keccak256": "0x9d09bcc9eeb9afacfe9735d3b61909b2ecee64e8aca58113fbc93b491e8d38d5",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://36eeff27565f5671794d753f0d7e70438b8cca4c777d7db617ee642ef8831259",
+				"dweb:/ipfs/QmQE5X8SQVtnVarUwR4A1RDBTjyS1HLAYU5MCFExkc2KB3"
+			]
+		}
+	},
+	"version": 1
+}

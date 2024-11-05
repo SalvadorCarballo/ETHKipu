@@ -1,0 +1,64 @@
+{
+	"compiler": {
+		"version": "0.8.26+commit.8a97fa7a"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_durationInSeconds",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"inputs": [],
+				"name": "makeBid",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"ETHKIPU/Bid.sol": "BidSC"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"ETHKIPU/Bid.sol": {
+			"keccak256": "0x71d419d2deb6e8fc9ce0255dcc6b481670d413224a37359e078ba578e1375280",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://98e005b2c3fb21bf9d81378a6b61b8cfd3dabf304a19d9d4c4485e7f32a945b0",
+				"dweb:/ipfs/QmZfEPbqReXt67MCN4EXxN3XSxFrBGL4py7sQXdTLFBcpX"
+			]
+		}
+	},
+	"version": 1
+}
