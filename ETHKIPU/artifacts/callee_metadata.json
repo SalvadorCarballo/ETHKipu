@@ -1,6 +1,6 @@
 {
 	"compiler": {
-		"version": "0.8.26+commit.8a97fa7a"
+		"version": "0.8.25+commit.b61c2a91"
 	},
 	"language": "Solidity",
 	"output": {
@@ -32,7 +32,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"ETHKIPU/callee2.sol": "callee"
+			"ETHKIPU/callee.sol": "callee"
 		},
 		"evmVersion": "cancun",
 		"libraries": {},
@@ -46,12 +46,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"ETHKIPU/callee2.sol": {
-			"keccak256": "0x4f8accc511b266189355b101d21223fe919ea56f96c6abad9720be10cc3d8662",
+		"ETHKIPU/callee.sol": {
+			"keccak256": "0x32ad51ec39ad27440d470f2d330e26b9d593728ffbf9feb23b4ea8080d7b8e1e",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://6d13aa29c49cd670e5c8b1796d0a0f0ea6e12e0ca450fcbefd90bb5385db734d",
-				"dweb:/ipfs/QmfENGPfhvzvPizxqNcXoKWQG97ouPgw28s9PcWM4TQMPS"
+				"bzz-raw://6da66f3cd1a4410200b73af5fa77687f8528d00bead52efc2728ef75e429eed4",
+				"dweb:/ipfs/QmQnS2jw15exd55ntbYRfQHJ9ajEQEurMp1UbVZaywfBEZ"
 			]
 		}
 	},

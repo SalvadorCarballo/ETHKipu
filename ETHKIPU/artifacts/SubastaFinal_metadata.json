@@ -6,13 +6,7 @@
 	"output": {
 		"abi": [
 			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "_vendedor",
-						"type": "address"
-					}
-				],
+				"inputs": [],
 				"stateMutability": "nonpayable",
 				"type": "constructor"
 			},
@@ -200,7 +194,7 @@
 								"type": "uint256"
 							}
 						],
-						"internalType": "struct SubastaSC.Oferta[]",
+						"internalType": "struct SubastaFinal.Oferta[]",
 						"name": "",
 						"type": "tuple[]"
 					}
@@ -318,13 +312,19 @@
 				"type": "function"
 			},
 			{
-				"inputs": [],
-				"name": "vendedor",
-				"outputs": [
+				"inputs": [
 					{
 						"internalType": "address",
 						"name": "",
 						"type": "address"
+					}
+				],
+				"name": "ultimaOferta",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
 					}
 				],
 				"stateMutability": "view",
@@ -344,7 +344,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"ETHKIPU/SubastaModulo2.sol": "SubastaSC"
+			"ETHKIPU/SubastaModulo2.sol": "SubastaFinal"
 		},
 		"evmVersion": "cancun",
 		"libraries": {},
@@ -359,11 +359,11 @@
 	},
 	"sources": {
 		"ETHKIPU/SubastaModulo2.sol": {
-			"keccak256": "0xc402e2b5fca491f9bed961b1bc01eaa6d0008e0ecdd7c17a84de71a8fc37ed92",
+			"keccak256": "0xd509f9017db28d2a99c3f139c663258874a0114ec81575e0499a2e92f89b6461",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://f9d2a7e3076e1e0f766ff2a4ad2bdf49e704e1f3cf31d4400187ab9294f4e5c1",
-				"dweb:/ipfs/QmYeHP4GSYSqWi29AS7nUAb66LhBMj1zE3KXPyJsff2ZaA"
+				"bzz-raw://8307ff58ebf19b5a7219ac02cd12bd6a100077ac7ca378d2d00f3870a6c19217",
+				"dweb:/ipfs/QmPB7216MPbu6YmQyy1ayutTWx8tcxz9JPCb5WnKfbzWya"
 			]
 		}
 	},

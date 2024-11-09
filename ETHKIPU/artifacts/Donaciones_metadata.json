@@ -1,10 +1,165 @@
 {
 	"compiler": {
-		"version": "0.8.26+commit.8a97fa7a"
+		"version": "0.8.25+commit.b61c2a91"
 	},
 	"language": "Solidity",
 	"output": {
-		"abi": [],
+		"abi": [
+			{
+				"inputs": [],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "donante",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "donacion",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "fecha",
+						"type": "uint256"
+					}
+				],
+				"name": "DonacionRealizada",
+				"type": "event"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "balance",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "donaciones",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "donante",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "cantidad",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "fecha",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "donar",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "obtenerDonaciones",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "address",
+								"name": "donante",
+								"type": "address"
+							},
+							{
+								"internalType": "uint256",
+								"name": "cantidad",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "fecha",
+								"type": "uint256"
+							}
+						],
+						"internalType": "struct Donaciones.Donacion[]",
+						"name": "_donaciones",
+						"type": "tuple[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "owner",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "retirarFondos",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "uniqueAddr",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
 		"devdoc": {
 			"kind": "dev",
 			"methods": {},
@@ -18,7 +173,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"ETHKIPU/SubastaModulo2.sol": "Donaciones"
+			"ETHKIPU/Donaciones.sol": "Donaciones"
 		},
 		"evmVersion": "cancun",
 		"libraries": {},
@@ -32,12 +187,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"ETHKIPU/SubastaModulo2.sol": {
-			"keccak256": "0xc36ed1267da55fa794a6f850963fc82d2216a5e195ce9e8c6176fe9131e392b1",
+		"ETHKIPU/Donaciones.sol": {
+			"keccak256": "0xb1051a3da6abccf4adcb29df13d9f7ea4c46339843c76246310182377b558770",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://398cc40619e0c0f5d3bdf6628726eccaa1164b5366264c4f5d4f6f43b08caca4",
-				"dweb:/ipfs/QmaqrG66fJDLwF1AK3dsEvQANFRgKCAe7YUHgJq4zhigMy"
+				"bzz-raw://14ccf325a6adaf863e2d9ec73015470eff0c17875df1202f8d96bf0b3cffd9cf",
+				"dweb:/ipfs/QmX321cZZTAUFpr7DG6VHBB5f8kSCpigydArBQF2DVu8z7"
 			]
 		}
 	},
