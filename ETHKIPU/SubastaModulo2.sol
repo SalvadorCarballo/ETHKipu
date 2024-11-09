@@ -56,8 +56,7 @@ contract SubastaFinal {
     }
 
     // Función para ofertar
-    function ofertar() external payable subastaHaIniciado subastaActiva {
-        uint256 _oferta = msg.value; 
+    function ofertar(uint256 _oferta) external payable subastaHaIniciado subastaActiva {
         address _ofertante = msg.sender;
         require(_oferta >= ofertaMinima, "La oferta debe ser al menos el minimo de 0.005 ETH");
         require(_oferta >= mejorOferta + (mejorOferta * porcentajeIncrementoMinimo / 100), "La oferta debe ser al menos un 5% mayor que la mejor oferta actual");

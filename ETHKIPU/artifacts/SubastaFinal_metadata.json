@@ -216,7 +216,13 @@
 				"type": "function"
 			},
 			{
-				"inputs": [],
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_oferta",
+						"type": "uint256"
+					}
+				],
 				"name": "ofertar",
 				"outputs": [],
 				"stateMutability": "payable",
@@ -359,11 +365,11 @@
 	},
 	"sources": {
 		"ETHKIPU/SubastaModulo2.sol": {
-			"keccak256": "0x7bdec3af118a981524441fcf1dc9a740837e2e23a10dd17b742bbee15046320d",
+			"keccak256": "0xce72cfe6215274b9e067f2d24d000bd82a815689f3ac7878d5c853460cbd269d",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://316cd595c503ee49554fe73cdb60e32542c19756cac00c2deda844d5b8ec97b6",
-				"dweb:/ipfs/QmRzbXXfQvkyMoKgBPoXPGLS6LX3fFCgKqPcnSEx9gxERZ"
+				"bzz-raw://06d056777c5d41616d7ab544e339c29957e302764953b4680377a2ed1fa29208",
+				"dweb:/ipfs/QmfAiusHcAhHKYKDdnt1HuLsXCN64zpWVAPDWsLQ39m3eb"
 			]
 		}
 	},
