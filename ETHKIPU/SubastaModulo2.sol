@@ -9,7 +9,7 @@ contract SubastaFinal {
     uint256 public mejorOferta;
     uint256 public inicioTiempo = 1730894400; // Timestamp para 6 de noviembre de 2024, 12:00 GMT obtenido a traves de https://www.epochconverter.com/
     uint256 public finTiempo = inicioTiempo + (7 * 24 * 60 * 60); // La subasta finaliza 7 días despues del inicio, el dato se maneja en segundos (X días * 24 hs/día * 60 min/hs * 60 s/min)
-    uint256 public ofertaMinima = 0.005 ether;
+    uint256 public ofertaMinima = 5000000000000000; // oferta minima en 0.005 ether expresado en wei
     uint256 public extensionTiempo = 10 * 60; // Extensión de 10 minutos 
     uint256 public previofinTiempo = 10 * 60; // Para control de 10 minutos antes de que finalice la subasta
     uint256 public porcentajeIncrementoMinimo = 5;
@@ -77,7 +77,7 @@ contract SubastaFinal {
 
         emit NuevaOferta(_ofertante, _oferta);
 
-        // Extender la subasta si quedan menos de 10 minutos
+        // Extender la subasta si quedan menos de 10 minutos (previofinTiempo)
         if (block.timestamp > finTiempo - previofinTiempo) {
             finTiempo += extensionTiempo;
         }

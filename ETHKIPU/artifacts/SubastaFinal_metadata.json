@@ -359,11 +359,11 @@
 	},
 	"sources": {
 		"ETHKIPU/SubastaModulo2.sol": {
-			"keccak256": "0xd509f9017db28d2a99c3f139c663258874a0114ec81575e0499a2e92f89b6461",
+			"keccak256": "0x7bdec3af118a981524441fcf1dc9a740837e2e23a10dd17b742bbee15046320d",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://8307ff58ebf19b5a7219ac02cd12bd6a100077ac7ca378d2d00f3870a6c19217",
-				"dweb:/ipfs/QmPB7216MPbu6YmQyy1ayutTWx8tcxz9JPCb5WnKfbzWya"
+				"bzz-raw://316cd595c503ee49554fe73cdb60e32542c19756cac00c2deda844d5b8ec97b6",
+				"dweb:/ipfs/QmRzbXXfQvkyMoKgBPoXPGLS6LX3fFCgKqPcnSEx9gxERZ"
 			]
 		}
 	},
