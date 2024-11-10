@@ -203,6 +203,25 @@
 				"type": "function"
 			},
 			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_sender",
+						"type": "address"
+					}
+				],
+				"name": "mostrarultOferta",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
 				"inputs": [],
 				"name": "ofertaMinima",
 				"outputs": [
@@ -216,13 +235,7 @@
 				"type": "function"
 			},
 			{
-				"inputs": [
-					{
-						"internalType": "uint256",
-						"name": "_oferta",
-						"type": "uint256"
-					}
-				],
+				"inputs": [],
 				"name": "ofertar",
 				"outputs": [],
 				"stateMutability": "payable",
@@ -365,11 +378,11 @@
 	},
 	"sources": {
 		"ETHKIPU/SubastaModulo2.sol": {
-			"keccak256": "0xce72cfe6215274b9e067f2d24d000bd82a815689f3ac7878d5c853460cbd269d",
+			"keccak256": "0xd451e14a0516b32d82c8759543537bdebd5bfed73b10779722cd011de1600509",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://06d056777c5d41616d7ab544e339c29957e302764953b4680377a2ed1fa29208",
-				"dweb:/ipfs/QmfAiusHcAhHKYKDdnt1HuLsXCN64zpWVAPDWsLQ39m3eb"
+				"bzz-raw://a40818ec4d006b171d1bc480b2781e600a923c296c1e235696fee4d0abf07d82",
+				"dweb:/ipfs/QmQ8WrxdeAASNibQMuRmKNxDfWRbjjj925yd5DnwgV2KTt"
 			]
 		}
 	},

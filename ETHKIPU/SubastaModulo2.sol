@@ -56,8 +56,9 @@ contract SubastaFinal {
     }
 
     // Función para ofertar
-    function ofertar(uint256 _oferta) external payable subastaHaIniciado subastaActiva {
+    function ofertar() external payable subastaHaIniciado subastaActiva {
         address _ofertante = msg.sender;
+        uint256 _oferta= msg.value;
         require(_oferta >= ofertaMinima, "La oferta debe ser al menos el minimo de 0.005 ETH");
         require(_oferta >= mejorOferta + (mejorOferta * porcentajeIncrementoMinimo / 100), "La oferta debe ser al menos un 5% mayor que la mejor oferta actual");
 
@@ -71,7 +72,7 @@ contract SubastaFinal {
         mejorOferta = _oferta;
         ofertas.push(Oferta(_ofertante, _oferta));
 
-        depositos[_ofertante] += _oferta;
+        //depositos[_ofertante] += _oferta;
         ultimaOferta[_ofertante] = _oferta; // Registra la última oferta del ofertante
 
         emit NuevaOferta(_ofertante, _oferta);
@@ -89,7 +90,12 @@ contract SubastaFinal {
 
     // Mostrar todas las ofertas
     function mostrarOfertas() external view returns (Oferta[] memory) {
-        return ofertas; // devuleve el array de estructura de ofertante y oferta
+        return ofertas; // devuelve el array de estructura de ofertante y oferta
+    }
+
+    // Mostrar ultima oferta realizada
+    function mostrarultOferta(address _sender) external view returns (uint256) {
+        return ultimaOferta[_sender]; // devuelve valor de ultima oferta realizada
     }
 
     // Finalizar subasta
