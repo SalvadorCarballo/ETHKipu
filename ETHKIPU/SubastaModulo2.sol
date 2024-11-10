@@ -93,11 +93,6 @@ contract SubastaFinal {
         return ofertas; // devuelve el array de estructura de ofertante y oferta
     }
 
-    // Mostrar ultima oferta realizada
-    function mostrarultOferta(address _sender) external view returns (uint256) {
-        return ultimaOferta[_sender]; // devuelve valor de ultima oferta realizada
-    }
-
     // Finalizar subasta
     function finalizarSubasta() external soloSubastador subastaActiva {
         require(block.timestamp >= finTiempo, "La subasta aun esta en curso");

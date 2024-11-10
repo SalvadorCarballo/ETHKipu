@@ -203,25 +203,6 @@
 				"type": "function"
 			},
 			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "_sender",
-						"type": "address"
-					}
-				],
-				"name": "mostrarultOferta",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
 				"inputs": [],
 				"name": "ofertaMinima",
 				"outputs": [
@@ -378,11 +359,11 @@
 	},
 	"sources": {
 		"ETHKIPU/SubastaModulo2.sol": {
-			"keccak256": "0xd451e14a0516b32d82c8759543537bdebd5bfed73b10779722cd011de1600509",
+			"keccak256": "0x4a29ed37a4eca29fc6fba77cf653a70b5655ad266a6d5c63898b71878f957245",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://a40818ec4d006b171d1bc480b2781e600a923c296c1e235696fee4d0abf07d82",
-				"dweb:/ipfs/QmQ8WrxdeAASNibQMuRmKNxDfWRbjjj925yd5DnwgV2KTt"
+				"bzz-raw://6404f3fa26967a9d2762b4df8a3221c80c857e876ee1648cf42707d67c2e9c3f",
+				"dweb:/ipfs/QmeRSmakodiGmDH4tjKNtEPB7T6H78A7NRBniQM2ikn1GF"
 			]
 		}
 	},
