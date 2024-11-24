@@ -27,6 +27,12 @@ contract SimpleDEX {
         _;
     }
 
+    //I verify that the contract has liquidity
+    modifier EnoughLiquidity() {
+        require(balanceofA > 0 && balanceofB > 0, "Not enough liquidity"); 
+        _;
+    }
+
     //add liquidity to the pool by depositing tokenA and tokenB amounts
     function addLiquidity(uint256 amountA, uint256 amountB) external onlyOwner {
         require(amountA > 0 && amountB > 0, "Amounts must be greater than 0"); //I request that the amounts of tokenA and tokenB be greater than 0
@@ -41,7 +47,7 @@ contract SimpleDEX {
     }
 
     //To swap tokenA for tokenB
-    function swapAforB(uint256 amountAIn) external {
+    function swapAforB(uint256 amountAIn) external EnoughLiquidity {
         require(amountAIn > 0, "Amount must be greater than 0");//I request that tokenA amounts be greater than 0 for the swap
 
         //To calculate the amount of tokens that a user will receive when making the swap, according to (x+dx)*(y-dy) = x*y => dy = y-(x*y)/(x+dx)
@@ -61,13 +67,13 @@ contract SimpleDEX {
     }
 
     //To swap tokenB for tokenA
-    function swapBforA(uint256 amountBIn) external {
+    function swapBforA(uint256 amountBIn) external EnoughLiquidity {
         require(amountBIn > 0, "Amount must be greater than 0");//I request that tokenB amounts be greater than 0 for the swap
 
-        //To calculate the amount of tokens that a user will receive when making the swap, according to (x+dx)*(y-dy) = x*y => dX = (x*y)/(y+dy)-x
-        uint256 denominator = balanceofB + amountBIn; // (y+dy)
-        uint256 fraction = (balanceofA * balanceofB) / denominator; // (x*y)/(y+dy)
-        uint256 amountAOut = fraction - balanceofA; // dx=((x*y)/(y+dy))-x
+        //To calculate the amount of tokens that a user will receive when making the swap, according to (x+dx)*(y-dy) = x*y => dX = (x*y)/(y-dy)-x
+        uint256 denominator = balanceofB - amountBIn; // (y-dy)
+        uint256 fraction = (balanceofA * balanceofB) / denominator; // (x*y)/(y-dy)
+        uint256 amountAOut = fraction - balanceofA; // dx=((x*y)/(y-dy))-x
 
         require(amountAOut > 0 && amountAOut <= balanceofA, "Invalid output amount"); //Check that "amountAout" is not negative and is less than the total balance of tokenA
 
@@ -81,9 +87,9 @@ contract SimpleDEX {
     }
 
     //For the owner to withdraw liquidity
-    function removeLiquidity(uint256 amountA, uint256 amountB) external onlyOwner {
+    function removeLiquidity(uint256 amountA, uint256 amountB) external onlyOwner EnoughLiquidity {
         require(amountA <= balanceofA && amountB <= balanceofB, "Not enough liquidity"); //I check that the requested quantities are available
-
+    
         balanceofA -= amountA; //Update the balance in the tokenA pool
         balanceofB -= amountB; //Update the balance in the tokenB pool
 
@@ -94,9 +100,9 @@ contract SimpleDEX {
     }
 
     //Calculates the relative price of one token in relation to the other
-    function getPrice(address _token) external view returns (uint256) {
+    function getPrice(address _token) external view EnoughLiquidity returns (uint256) {
         require(_token == address(tokenA) || _token == address(tokenB), "Invalid token address"); //Requires tokenA or tokenB to be used
-
+        
         if (_token == address(tokenA)) { //If it is tokenA, it returns the result of balanceB/balanceA
             return (balanceofB * 1e18) / balanceofA;
         } else { //If it is tokenB, it returns the result of balanceA/balanceB

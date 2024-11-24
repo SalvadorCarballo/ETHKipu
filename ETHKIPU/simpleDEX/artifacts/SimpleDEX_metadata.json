@@ -292,11 +292,11 @@
 			]
 		},
 		"ETHKIPU/simpleDEX/simpleDEX.sol": {
-			"keccak256": "0x9ec2ebfa391d0f7fac93b9e9df25a1d0f42fa3fd3223d016d01d6b202f1ed749",
+			"keccak256": "0x8ca6b1763f68a654ee5904231377962a52408d0febc6d83cea555114c64db381",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://7a8f0b2d3ec8ee4180a6969cc24e82d35148148d7e5ff4446a34129f3cee9927",
-				"dweb:/ipfs/QmQDwJgdQCjSas94cmueeRyb9J3JMgR84p6xR6XTrZuaBT"
+				"bzz-raw://afe30396a85130affa71e90233664dcbcaf18e25a372360206d5493a5e1a4494",
+				"dweb:/ipfs/Qmay4vjbtnm1td6GTfuGXVMe6KZf27KM7LiSSHjb4v8waC"
 			]
 		}
 	},
