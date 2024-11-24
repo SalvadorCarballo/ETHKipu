@@ -596,11 +596,11 @@
 			]
 		},
 		"ETHKIPU/simpleDEX/TokenB.sol": {
-			"keccak256": "0x8d28fac68c32423eea875ee36aaa0b2c3411a3f4971dab569a0210f9cd96abf2",
+			"keccak256": "0x1ac68a60023b37e387002086a88f369e729c8cd11aacfb115cccc94b0b9e8413",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://d32e7bfa5d2afafe6751f4f9ddd293c0fda217ebf2451dcc3833f5669038dfe4",
-				"dweb:/ipfs/QmaSyq1gP5HNhdsi88dJpeSM543PnQQvbSptJeqGP67U1A"
+				"bzz-raw://33453b18f3d2d9ad6e1c1d9a2fd96393723eb9bc7750e7aec80f978cbd601998",
+				"dweb:/ipfs/QmVTes7XhmMniMF6fZ7JgTLR8TW2aXkWi5BvZuKx5KF7GB"
 			]
 		}
 	},

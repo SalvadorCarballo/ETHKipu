@@ -6,12 +6,13 @@ import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 contract SimpleDEX {
     IERC20 public tokenA;  //ERC-20 token contracts that can be traded on the simpleDEX
     IERC20 public tokenB;  //ERC-20 token contracts that can be traded on the simpleDEX
-    uint256 public reserveA; //Stores the amount of tokenA in the liquidity pool
-    uint256 public reserveB; //Stores the amount of tokenA in the liquidity pool
+    uint256 public balanceofA; //Stores the amount of tokenA in the liquidity pool
+    uint256 public balanceofB; //Stores the amount of tokenA in the liquidity pool
     address public owner;
 
     event LiquidityAdded(uint256 amountA, uint256 amountB); // "Liquidity Increase" event
-    event TokensSwapped(address indexed user, uint256 amountIn, uint256 amountOut); // "Token Swap" event
+    event TokensSwappedAB(address indexed user, uint256 amountAIn, uint256 amountBOut); // Generates the event "Swap of tokens A for B"
+    event TokensSwappedBA(address indexed user, uint256 amountBIn, uint256 amountAOut); // Generates the event "Swap of tokens B for A"
     event LiquidityRemoved(uint256 amountA, uint256 amountB); // "Decreased Liquidity" event
 
     //The contract receives the contract addresses of tokenA and tokenB as parameters
@@ -33,8 +34,8 @@ contract SimpleDEX {
         tokenA.transferFrom(msg.sender, address(this), amountA); //transfer amountA of tokenA from the owner to the contract
         tokenB.transferFrom(msg.sender, address(this), amountB); //transfer amountB of tokenB from the owner to the contract
 
-        reserveA += amountA; //Update the balance in the tokenA pool
-        reserveB += amountB; //Update the balance in the tokenB pool
+        balanceofA += amountA; //Update the balance in the tokenA pool
+        balanceofB += amountB; //Update the balance in the tokenB pool
 
         emit LiquidityAdded(amountA, amountB); //generates "Liquidity Increase" event
     }
@@ -43,36 +44,48 @@ contract SimpleDEX {
     function swapAforB(uint256 amountAIn) external {
         require(amountAIn > 0, "Amount must be greater than 0");//I request that tokenA amounts be greater than 0 for the swap
 
-        uint256 amountBOut = getSwapAmount(amountAIn, reserveA, reserveB); //use the getSwapAmount function to calculate how many tokenB the user will receive in swap
+        //To calculate the amount of tokens that a user will receive when making the swap, according to (x+dx)*(y-dy) = x*y => dy = y-(x*y)/(x+dx)
+        uint256 denominator = balanceofA + amountAIn; // (x+dx)
+        uint256 fraction = (balanceofA * balanceofB) / denominator; // (x*y)/(x+dx)
+        uint256 amountBOut = balanceofB - fraction; // dy=y-((x*y)/(x+dx))
+        
+        require(amountBOut > 0 && amountBOut <= balanceofB, "Invalid output amount"); //Check that "amountBout" is not negative and is less than the total balance of tokenB
+
         tokenA.transferFrom(msg.sender, address(this), amountAIn); //Transfer the amount "amountAIn" of tokenA from the user to the contract
         tokenB.transfer(msg.sender, amountBOut); //Send the amount "amountBOut" of tokenB to the user
 
-        reserveA += amountAIn; //Update the balance in the tokenA pool
-        reserveB -= amountBOut; //Update the balance in the tokenB pool
+        balanceofA += amountAIn; //Update the balance in the tokenA pool
+        balanceofB -= amountBOut; //Update the balance in the tokenB pool
 
-        emit TokensSwapped(msg.sender, amountAIn, amountBOut); //Generates "Token Swap" event
+        emit TokensSwappedAB(msg.sender, amountAIn, amountBOut); //Generates the event "Swap of tokens A for B"
     }
 
     //To swap tokenB for tokenA
     function swapBforA(uint256 amountBIn) external {
         require(amountBIn > 0, "Amount must be greater than 0");//I request that tokenB amounts be greater than 0 for the swap
 
-        uint256 amountAOut = getSwapAmount(amountBIn, reserveB, reserveA); ////use the getSwapAmount function to calculate how many tokenB the user will receive in swap
+        //To calculate the amount of tokens that a user will receive when making the swap, according to (x+dx)*(y-dy) = x*y => dX = (x*y)/(y+dy)-x
+        uint256 denominator = balanceofB + amountBIn; // (y+dy)
+        uint256 fraction = (balanceofA * balanceofB) / denominator; // (x*y)/(y+dy)
+        uint256 amountAOut = fraction - balanceofA; // dx=((x*y)/(y+dy))-x
+
+        require(amountAOut > 0 && amountAOut <= balanceofA, "Invalid output amount"); //Check that "amountAout" is not negative and is less than the total balance of tokenA
+
         tokenB.transferFrom(msg.sender, address(this), amountBIn); //Transfer the amount "amountBIn" of tokenB from the user to the contract
         tokenA.transfer(msg.sender, amountAOut); //Send the amount "amountAOut" of tokenB to the user
 
-        reserveB += amountBIn; //Update the balance in the tokenB pool
-        reserveA -= amountAOut; //Update the balance in the tokenA pool
+        balanceofB += amountBIn; //Update the balance in the tokenB pool
+        balanceofA -= amountAOut; //Update the balance in the tokenA pool
 
-        emit TokensSwapped(msg.sender, amountBIn, amountAOut); //Generates "Token Swap" event
+        emit TokensSwappedBA(msg.sender, amountBIn, amountAOut); //Generates the event "Swap of tokens B for A"
     }
 
     //For the owner to withdraw liquidity
     function removeLiquidity(uint256 amountA, uint256 amountB) external onlyOwner {
-        require(amountA <= reserveA && amountB <= reserveB, "Not enough liquidity"); //I check that the requested quantities are available
+        require(amountA <= balanceofA && amountB <= balanceofB, "Not enough liquidity"); //I check that the requested quantities are available
 
-        reserveA -= amountA; //Update the balance in the tokenA pool
-        reserveB -= amountB; //Update the balance in the tokenB pool
+        balanceofA -= amountA; //Update the balance in the tokenA pool
+        balanceofB -= amountB; //Update the balance in the tokenB pool
 
         tokenA.transfer(msg.sender, amountA); //I send the amount "amountA" to the owner
         tokenB.transfer(msg.sender, amountB); //I send the amount "amountB" to the owner
@@ -85,23 +98,10 @@ contract SimpleDEX {
         require(_token == address(tokenA) || _token == address(tokenB), "Invalid token address"); //Requires tokenA or tokenB to be used
 
         if (_token == address(tokenA)) { //If it is tokenA, it returns the result of balanceB/balanceA
-            return reserveB / reserveA;
+            return (balanceofB * 1e18) / balanceofA;
         } else { //If it is tokenB, it returns the result of balanceA/balanceB
-            return reserveA / reserveB;
+            return (balanceofA * 1e18) / balanceofB;
         }
     }
-
-    //To calculate the amount of tokens that a user will receive when making the swap, according to (x+dx)*(y-dy) = x*y => dy = y-(x*y)/(x+dx)
-   function getSwapAmount(uint256 amountIn, uint256 reserveIn, uint256 reserveOut) private pure returns (uint256) {
-    // amountIn: Amount of tokens that the user adds to the pool (dx)
-    // reserveIn: Amount of tokens in the incoming token pool (x)
-    // reserveOut: Amount of tokens in the token pool that is leaving (y)
-    // amountOut: Amount of tokens that the user will receive from the pool (dy)
-    uint256 denominator = reserveIn + amountIn; // (x+dx)
-    uint256 fraction = (reserveIn * reserveOut) / denominator; // (x*y)/(x+dx)
-    uint256 amountOut = reserveOut - fraction; // y-((x*y)/(x+dx))
-    return amountOut; // dy
-}
-
 
 }

@@ -71,17 +71,42 @@
 					{
 						"indexed": false,
 						"internalType": "uint256",
-						"name": "amountIn",
+						"name": "amountAIn",
 						"type": "uint256"
 					},
 					{
 						"indexed": false,
 						"internalType": "uint256",
-						"name": "amountOut",
+						"name": "amountBOut",
 						"type": "uint256"
 					}
 				],
-				"name": "TokensSwapped",
+				"name": "TokensSwappedAB",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "user",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amountBIn",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amountAOut",
+						"type": "uint256"
+					}
+				],
+				"name": "TokensSwappedBA",
 				"type": "event"
 			},
 			{
@@ -100,6 +125,32 @@
 				"name": "addLiquidity",
 				"outputs": [],
 				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "balanceofA",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "balanceofB",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
 				"type": "function"
 			},
 			{
@@ -150,32 +201,6 @@
 				"name": "removeLiquidity",
 				"outputs": [],
 				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "reserveA",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "reserveB",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"stateMutability": "view",
 				"type": "function"
 			},
 			{
@@ -267,11 +292,11 @@
 			]
 		},
 		"ETHKIPU/simpleDEX/simpleDEX.sol": {
-			"keccak256": "0xe32a3fd160d6453d29f8e62a8036150298d4b07ec9cd0a7edb2537df4b5973fc",
+			"keccak256": "0x9ec2ebfa391d0f7fac93b9e9df25a1d0f42fa3fd3223d016d01d6b202f1ed749",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://84e848f6245a5662414dea517603679c5122e74d6ae4e781953f023debf9624e",
-				"dweb:/ipfs/QmPRHFvjpPTQ68vtWeBW1e5qTpsF3T95cuqVpx8FfxRz2c"
+				"bzz-raw://7a8f0b2d3ec8ee4180a6969cc24e82d35148148d7e5ff4446a34129f3cee9927",
+				"dweb:/ipfs/QmQDwJgdQCjSas94cmueeRyb9J3JMgR84p6xR6XTrZuaBT"
 			]
 		}
 	},
