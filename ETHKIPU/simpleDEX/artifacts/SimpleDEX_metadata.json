@@ -323,6 +323,8 @@
 			}
 		],
 		"devdoc": {
+			"author": "Salvador Carballo",
+			"details": "Uses the constant product formula for swaps",
 			"errors": {
 				"OwnableInvalidOwner(address)": [
 					{
@@ -335,23 +337,137 @@
 					}
 				]
 			},
+			"events": {
+				"LiquidityAdded(uint256,uint256)": {
+					"params": {
+						"amountA": "The amount of token A added to the pool",
+						"amountB": "The amount of token B added to the pool"
+					}
+				},
+				"LiquidityRemoved(uint256,uint256)": {
+					"params": {
+						"amountA": "The amount of token A removed from the pool",
+						"amountB": "The amount of token B removed from the pool"
+					}
+				},
+				"TokensSwappedAB(address,uint256,uint256)": {
+					"params": {
+						"amountAIn": "The amount of token A swapped",
+						"amountBOut": "The amount of token B received",
+						"user": "The address of the user performing the swap"
+					}
+				},
+				"TokensSwappedBA(address,uint256,uint256)": {
+					"params": {
+						"amountAOut": "The amount of token A received",
+						"amountBIn": "The amount of token B swapped",
+						"user": "The address of the user performing the swap"
+					}
+				}
+			},
 			"kind": "dev",
 			"methods": {
+				"addLiquidity(uint256,uint256)": {
+					"details": "Only callable by the owner",
+					"params": {
+						"amountA": "The amount of token A to add",
+						"amountB": "The amount of token B to add"
+					}
+				},
+				"constructor": {
+					"params": {
+						"_tokenA": "The address of token A",
+						"_tokenB": "The address of token B",
+						"initialOwner": "The address of the initial owner"
+					}
+				},
+				"getPrice(address)": {
+					"params": {
+						"_token": "The address of the token to price"
+					},
+					"returns": {
+						"_0": "The price of the token in terms of the other token"
+					}
+				},
 				"owner()": {
 					"details": "Returns the address of the current owner."
 				},
+				"removeLiquidity(uint256,uint256)": {
+					"details": "Only callable by the owner",
+					"params": {
+						"amountA": "The amount of token A to remove",
+						"amountB": "The amount of token B to remove"
+					}
+				},
 				"renounceOwnership()": {
 					"details": "Leaves the contract without owner. It will not be possible to call `onlyOwner` functions. Can only be called by the current owner. NOTE: Renouncing ownership will leave the contract without an owner, thereby disabling any functionality that is only available to the owner."
+				},
+				"swapAforB(uint256)": {
+					"params": {
+						"amountAIn": "The amount of token A to swap"
+					}
+				},
+				"swapBforA(uint256)": {
+					"params": {
+						"amountBIn": "The amount of token B to swap"
+					}
 				},
 				"transferOwnership(address)": {
 					"details": "Transfers ownership of the contract to a new account (`newOwner`). Can only be called by the current owner."
 				}
 			},
+			"title": "Simple Decentralized Exchange (DEX)",
 			"version": 1
 		},
 		"userdoc": {
+			"events": {
+				"LiquidityAdded(uint256,uint256)": {
+					"notice": "Emitted when liquidity is added"
+				},
+				"LiquidityRemoved(uint256,uint256)": {
+					"notice": "Emitted when liquidity is removed"
+				},
+				"TokensSwappedAB(address,uint256,uint256)": {
+					"notice": "Emitted when token A is swapped for token B"
+				},
+				"TokensSwappedBA(address,uint256,uint256)": {
+					"notice": "Emitted when token B is swapped for token A"
+				}
+			},
 			"kind": "user",
-			"methods": {},
+			"methods": {
+				"addLiquidity(uint256,uint256)": {
+					"notice": "Adds liquidity to the pool"
+				},
+				"balanceofA()": {
+					"notice": "Stores the amount of token A in the liquidity pool"
+				},
+				"balanceofB()": {
+					"notice": "Stores the amount of token B in the liquidity pool"
+				},
+				"constructor": {
+					"notice": "Initializes the DEX with the two tokens and sets the initial owner"
+				},
+				"getPrice(address)": {
+					"notice": "Calculates the relative price of one token in terms of the other"
+				},
+				"removeLiquidity(uint256,uint256)": {
+					"notice": "Removes liquidity from the pool"
+				},
+				"swapAforB(uint256)": {
+					"notice": "Swaps token A for token B"
+				},
+				"swapBforA(uint256)": {
+					"notice": "Swaps token B for token A"
+				},
+				"tokenA()": {
+					"notice": "ERC-20 token A in the liquidity pool"
+				},
+				"tokenB()": {
+					"notice": "ERC-20 token B in the liquidity pool"
+				}
+			},
+			"notice": "This contract facilitates token swaps and liquidity managementThe comment format was updated according to the model that was indicatedAs suggested in the feedback, the Ownable library was added. When doing so, the compiler gave an error requesting that a parameter with the address of the initial owner of the contract be added to the constructor. It seems that the version of OpenZeppelin that I have in Remix does not automatically assign the person who deploys the contract as the initial owner",
 			"version": 1
 		}
 	},
@@ -396,11 +512,11 @@
 			]
 		},
 		"ETHKIPU/simpleDEX/simpleDEX_v2.sol": {
-			"keccak256": "0xacabfd1be6fcd95faa027596b4eeb51140bb1f1cb1b2e4f74842f0d1e3180825",
+			"keccak256": "0xdeb89a73b71b5e50647cfa8b8b0e15680b6f3f9f1b8c031d6b357ec057e02762",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://012abd9728fa1e83fe397cd9b116b4ce238da950d470f9a20b4a88df0ab1c495",
-				"dweb:/ipfs/QmWHZPCgWshotUFUSk6zqdf6pDEKb88fmnz2pqKK46m2Nt"
+				"bzz-raw://e26fa9ce87d62cdcefa42b7a6bd3b0564483ece4ec6ad865951bb63fbe104101",
+				"dweb:/ipfs/QmTUqj52hFx1NSwnXja2zEREGGPDd82ZQ6TNZkW5o418ho"
 			]
 		}
 	},
