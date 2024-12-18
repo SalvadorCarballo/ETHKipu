@@ -1,0 +1,14 @@
+{
+  "name": "nodeethers",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "S Carballo",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "ethers": "^6.13.4"
+  }
+}
