@@ -1,0 +1,66 @@
+{
+	"compiler": {
+		"version": "0.8.25+commit.b61c2a91"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "to",
+						"type": "address"
+					}
+				],
+				"name": "mint",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "retrieve",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"ETHKIPU/Hacking2024/Proxy.sol": "IContract"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"ETHKIPU/Hacking2024/Proxy.sol": {
+			"keccak256": "0xb760e07103770383e0e818a7d4d2f087ff31d7ff698e937ed9cb822b84605bc1",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://00513fe9e732bf79d387253affdacd846cfaa79405ea563a11c119a3f91c94a2",
+				"dweb:/ipfs/QmWADWFGUKnFyifbsTUR4NR87q9doCU4Nq8rYfR3FRqMo7"
+			]
+		}
+	},
+	"version": 1
+}
